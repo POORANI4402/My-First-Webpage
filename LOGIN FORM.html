@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: auto;
+            padding: 5% 2% 2%;
+            background-image: url('images/black wall.jpg');
+            background-size: cover;
+        }
+        .container {
+            padding: 2% 2%;
+            border: 10px solid black;
+            box-shadow: 5px 10px 10px;
+            background-color: grey;
+            margin: auto;
+            width: 300px;
+            text-align: center;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 3%;
+            border: 2px solid black;
+            width: calc(100% - 14px); /* Adjusted for padding */
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: violet;
+            border-radius: 40px;
+            padding: 2% 5%;
+            cursor: pointer;
+        }
+        h1, p, hr {
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            font-size: 10px;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        function ValidateEmail(inputText) {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (inputText.value.match(mailformat)) {
+                return true;
+            } else {
+                alert("You have entered an invalid email address!");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body onload='document.form1.text1.focus()'>
+    <div class="container">
+        <h1><b>LOGIN PAGE</b></h1>
+        <p><b>Please fill in this form to LOGIN IN.</b></p>
+        <hr>
+        <form name="form1">
+            <input type="text" id="email" placeholder="E-MAIL" required name="text1">
+            <br>
+            <input type="password" id="myInput" placeholder="PASSWORD" required>
+            <br>
+            <input type="checkbox" onclick="myFunction()"> Show Password
+            <br>
+            <hr>
+            <button type="button" onclick="alert('CONFIRM TO SUBMIT'); ValidateEmail(document.form1.text1);">Login</button>
+        </form>
+        <div class="footer-links">
+            <h3>Create an Account - <a href="new sign up.html">sign up</a></h3>
+            <h3><a href="forget password.html">Forget Password?</a></h3>
+        </div>
+    </div>
+</body>
+</html>
